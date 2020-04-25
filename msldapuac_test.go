@@ -20,4 +20,7 @@ func TestParseUAC(t *testing.T) {
 
 	assert.Equal(t, expect, got)
 	assert.Nil(t, err)
+
+	num := TrustedForDelegation | NormalAccount
+	assert.Equal(t, num, 524800)
 }
