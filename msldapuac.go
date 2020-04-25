@@ -19,6 +19,8 @@ const (
 	interdomainTrustAccount                // 2048
 	workstationTrustAccount                // 4096
 	serverTrustAccount                     // 8192
+	_                                      // noop
+	_                                      // noop
 	dontExpirePassword                     // 65536
 	mnsLogonAccount                        // 131072
 	smartcardRequired                      // 262144
@@ -28,6 +30,7 @@ const (
 	dontReqPreauth                         // 4194304
 	passwordExpired                        // 8388608
 	trustedToAuthForDelegation             // 16777216
+	_                                      // noop
 	partialSecretsAccount                  // 67108864
 )
 
