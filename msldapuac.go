@@ -5,33 +5,33 @@ import (
 )
 
 const (
-	script                     = 1 << iota // 1
-	accountdisable                         // 2
+	Script                     = 1 << iota // 1
+	Accountdisable                         // 2
 	_                                      // noop
-	homedirRequired                        // 8
-	lockout                                // 16
-	passwdNotReqd                          // 32
-	passwdCantChange                       // 64
-	encryptedTextPwdAllowed                // 128
-	tempDuplicateAccount                   // 256
-	normalAccount                          // 512
+	HomedirRequired                        // 8
+	Lockout                                // 16
+	PasswdNotReqd                          // 32
+	PasswdCantChange                       // 64
+	EncryptedTextPwdAllowed                // 128
+	TempDuplicateAccount                   // 256
+	NormalAccount                          // 512
 	_                                      // noop
-	interdomainTrustAccount                // 2048
-	workstationTrustAccount                // 4096
-	serverTrustAccount                     // 8192
+	InterdomainTrustAccount                // 2048
+	WorkstationTrustAccount                // 4096
+	ServerTrustAccount                     // 8192
 	_                                      // noop
 	_                                      // noop
-	dontExpirePassword                     // 65536
-	mnsLogonAccount                        // 131072
-	smartcardRequired                      // 262144
-	trustedForDelegation                   // 524288
-	notDelegated                           // 1048576
-	useDesKeyOnly                          // 2097152
-	dontReqPreauth                         // 4194304
-	passwordExpired                        // 8388608
-	trustedToAuthForDelegation             // 16777216
+	DontExpirePassword                     // 65536
+	MnsLogonAccount                        // 131072
+	SmartcardRequired                      // 262144
+	TrustedForDelegation                   // 524288
+	NotDelegated                           // 1048576
+	UseDesKeyOnly                          // 2097152
+	DontReqPreauth                         // 4194304
+	PasswordExpired                        // 8388608
+	TrustedToAuthForDelegation             // 16777216
 	_                                      // noop
-	partialSecretsAccount                  // 67108864
+	PartialSecretsAccount                  // 67108864
 )
 
 // PropertyMap holds the Microsoft-defined values for all possible flags
@@ -39,28 +39,28 @@ const (
 //
 // https://support.microsoft.com/en-us/help/305144
 var PropertyMap = map[int]string{
-	script:                     "SCRIPT",
-	accountdisable:             "ACCOUNTDISABLE",
-	homedirRequired:            "HOMEDIR_REQUIRED",
-	lockout:                    "LOCKOUT",
-	passwdNotReqd:              "PASSWD_NOTREQD",
-	passwdCantChange:           "PASSWD_CANT_CHANGE",
-	encryptedTextPwdAllowed:    "ENCRYPTED_TEXT_PWD_ALLOWED",
-	tempDuplicateAccount:       "TEMP_DUPLICATE_ACCOUNT",
-	normalAccount:              "NORMAL_ACCOUNT",
-	interdomainTrustAccount:    "INTERDOMAIN_TRUST_ACCOUNT",
-	workstationTrustAccount:    "WORKSTATION_TRUST_ACCOUNT",
-	serverTrustAccount:         "SERVER_TRUST_ACCOUNT",
-	dontExpirePassword:         "DONT_EXPIRE_PASSWORD",
-	mnsLogonAccount:            "MNS_LOGON_ACCOUNT",
-	smartcardRequired:          "SMARTCARD_REQUIRED",
-	trustedForDelegation:       "TRUSTED_FOR_DELEGATION",
-	notDelegated:               "NOT_DELEGATED",
-	useDesKeyOnly:              "USE_DES_KEY_ONLY",
-	dontReqPreauth:             "DONT_REQ_PREAUTH",
-	passwordExpired:            "PASSWORD_EXPIRED",
-	trustedToAuthForDelegation: "TRUSTED_TO_AUTH_FOR_DELEGATION",
-	partialSecretsAccount:      "PARTIAL_SECRETS_ACCOUNT",
+	Script:                     "SCRIPT",
+	Accountdisable:             "ACCOUNTDISABLE",
+	HomedirRequired:            "HOMEDIR_REQUIRED",
+	Lockout:                    "LOCKOUT",
+	PasswdNotReqd:              "PASSWD_NOTREQD",
+	PasswdCantChange:           "PASSWD_CANT_CHANGE",
+	EncryptedTextPwdAllowed:    "ENCRYPTED_TEXT_PWD_ALLOWED",
+	TempDuplicateAccount:       "TEMP_DUPLICATE_ACCOUNT",
+	NormalAccount:              "NORMAL_ACCOUNT",
+	InterdomainTrustAccount:    "INTERDOMAIN_TRUST_ACCOUNT",
+	WorkstationTrustAccount:    "WORKSTATION_TRUST_ACCOUNT",
+	ServerTrustAccount:         "SERVER_TRUST_ACCOUNT",
+	DontExpirePassword:         "DONT_EXPIRE_PASSWORD",
+	MnsLogonAccount:            "MNS_LOGON_ACCOUNT",
+	SmartcardRequired:          "SMARTCARD_REQUIRED",
+	TrustedForDelegation:       "TRUSTED_FOR_DELEGATION",
+	NotDelegated:               "NOT_DELEGATED",
+	UseDesKeyOnly:              "USE_DES_KEY_ONLY",
+	DontReqPreauth:             "DONT_REQ_PREAUTH",
+	PasswordExpired:            "PASSWORD_EXPIRED",
+	TrustedToAuthForDelegation: "TRUSTED_TO_AUTH_FOR_DELEGATION",
+	PartialSecretsAccount:      "PARTIAL_SECRETS_ACCOUNT",
 }
 
 // ParseUAC will provide the caller with a collection of option names,

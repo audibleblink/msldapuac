@@ -13,4 +13,11 @@ func TestParseUAC(t *testing.T) {
 
 	assert.Equal(t, expect, got)
 	assert.Nil(t, err)
+
+	input = PartialSecretsAccount | NotDelegated | Script
+	expect = []string{"PARTIAL_SECRETS_ACCOUNT", "NOT_DELEGATED", "SCRIPT"}
+	got, err = ParseUAC(input)
+
+	assert.Equal(t, expect, got)
+	assert.Nil(t, err)
 }
