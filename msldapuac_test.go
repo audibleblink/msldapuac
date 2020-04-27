@@ -24,3 +24,13 @@ func TestParseUAC(t *testing.T) {
 	num := TrustedForDelegation | NormalAccount
 	assert.Equal(t, num, 524800)
 }
+
+func TestIsSet(t *testing.T) {
+	got, err := IsSet(int64(514), Accountdisable)
+	assert.True(t, got)
+	assert.Nil(t, err)
+
+	got, err = IsSet(int64(520), Accountdisable)
+	assert.False(t, got)
+	assert.Nil(t, err)
+}

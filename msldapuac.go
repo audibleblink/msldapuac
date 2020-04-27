@@ -78,3 +78,10 @@ func ParseUAC(uacInt int64) (flags []string, err error) {
 	}
 	return
 }
+
+// IsSet will inform the caller whether or not a particular flag
+// is set in a user's UserAccountControl BAM property
+// Example: IsSet(514, msldapuac.Accountdisable) == true
+func IsSet(bam int64, flagValue int) (bool, error) {
+	return bamflags.Contains(bam, int64(flagValue))
+}

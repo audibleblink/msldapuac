@@ -16,6 +16,10 @@ uac.ParseUAC(uacProp)
 
 propertyInt := uac.NormalAccount | uac.TrustedForDelegation
 // =>  524800
+
+uacField := int64(514)
+accountIsDisabled := IsSet(uacField, uac.Accountdisable)
+// => true
 ```
 
 ## Reference
