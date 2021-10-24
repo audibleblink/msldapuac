@@ -1,6 +1,10 @@
 package msldapuac
 
 import (
+	"fmt"
+	"io"
+	"sort"
+
 	"github.com/audibleblink/bamflags"
 )
 
@@ -84,4 +88,18 @@ func ParseUAC(uacInt int64) (flags []string, err error) {
 // Example: IsSet(514, msldapuac.Accountdisable) == true
 func IsSet(bam int64, flagValue int) bool {
 	return bamflags.Contains(bam, int64(flagValue))
+}
+
+// ListAll writes all possible UAC values to an io.Writer
+func ListAll(out io.Writer) {
+	keys := []int{}
+	for k := range PropertyMap {
+		keys = append(keys, k)
+	}
+
+	sort.Ints(keys)
+
+	for _, k := range keys {
+		fmt.Fprintf(out, "%d: %s\n", k, PropertyMap[k])
+	}
 }
