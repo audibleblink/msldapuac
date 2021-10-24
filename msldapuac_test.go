@@ -1,6 +1,8 @@
 package msldapuac
 
 import (
+	"bytes"
+	"io/ioutil"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -37,4 +39,21 @@ func TestIsSet(t *testing.T) {
 
 	got = IsSet(int64(520), Accountdisable)
 	assert.False(t, got)
+}
+
+func TestListAll(t *testing.T) {
+	buf := bytes.NewBuffer([]byte{})
+
+	expextedStart := []byte("1: SCRIPT\n")
+	expextedEnd := []byte("67108864: PARTIAL_SECRETS_ACCOUNT\n")
+
+	ListAll(buf)
+
+	output, err := ioutil.ReadAll(buf)
+	assert.NoError(t, err)
+
+	bytes.HasSuffix(output, expextedEnd)
+
+	assert.Equal(t, expextedStart, output[:len(expextedStart)])
+	assert.Equal(t, expextedEnd, output[len(output)-len(expextedEnd):])
 }
